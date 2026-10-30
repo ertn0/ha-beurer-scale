@@ -1,6 +1,9 @@
 {
   "domain": "beurer_scale",
   "name": "Beurer BF500 Scale",
+  "after_dependencies": [
+    "recorder"
+  ],
   "bluetooth": [
     {
       "local_name": "BF500",
