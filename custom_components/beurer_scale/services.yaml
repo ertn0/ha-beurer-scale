@@ -1,0 +1,15 @@
+import_history:
+  fields:
+    file:
+      required: true
+      example: "beurer_export.csv"
+      selector:
+        text:
+    user:
+      required: true
+      example: 2
+      selector:
+        number:
+          min: 1
+          max: 4
+          mode: box

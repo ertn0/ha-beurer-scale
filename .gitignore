@@ -1,0 +1,6 @@
+trace/
+*.pklg
+export/
+__pycache__/
+.DS_Store
+.pytest_cache/

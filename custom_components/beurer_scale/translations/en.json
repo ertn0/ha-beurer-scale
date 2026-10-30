@@ -1,0 +1,84 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Beurer BF500",
+        "description": "Choose the scale. Wake it up first (step on it).",
+        "data": {
+          "address": "Device"
+        }
+      },
+      "user_slot": {
+        "title": "User on the scale",
+        "description": "Which of the four user slots, and the 4-digit PIN set for it in the Beurer app. Each time Home Assistant reads the scale, it shows PAIr and a 6-digit number: press SET on the scale once to confirm.",
+        "data": {
+          "user": "User slot (1-4)",
+          "consent_code": "PIN"
+        }
+      },
+      "pin": {
+        "title": "PIN for user {user}",
+        "description": "The scale rejected the PIN, or you want to change it. Enter the 4-digit PIN of this user slot as set in the Beurer HealthManager Pro app.",
+        "data": {
+          "consent_code": "PIN"
+        }
+      }
+    },
+    "abort": {
+      "no_devices_found": "No BF500 found. Wake the scale and try again.",
+      "already_configured": "This user is already set up.",
+      "reauth_successful": "The PIN was updated.",
+      "reconfigure_successful": "The PIN was updated."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "weight": {
+        "name": "Weight"
+      },
+      "bmi": {
+        "name": "BMI"
+      },
+      "body_fat": {
+        "name": "Body fat"
+      },
+      "muscle": {
+        "name": "Muscle"
+      },
+      "body_water": {
+        "name": "Body water"
+      },
+      "bmr": {
+        "name": "Basal metabolic rate"
+      },
+      "impedance": {
+        "name": "Impedance"
+      },
+      "last_measurement": {
+        "name": "Last measurement"
+      }
+    },
+    "button": {
+      "fetch": {
+        "name": "Fetch measurements"
+      }
+    }
+  },
+  "services": {
+    "import_history": {
+      "name": "Import history",
+      "description": "Import a CSV export of the Beurer HealthManager Pro app as long-term statistics for one user (hourly values, only before the sensors were created).",
+      "fields": {
+        "file": {
+          "name": "File",
+          "description": "Path of the CSV file, relative to the config directory."
+        },
+        "user": {
+          "name": "User slot",
+          "description": "User slot on the scale (1-4) the export belongs to."
+        }
+      }
+    }
+  }
+}

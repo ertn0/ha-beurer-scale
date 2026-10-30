@@ -1,0 +1,84 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Beurer BF500",
+        "description": "Waage auswählen. Vorher aufwecken (kurz draufsteigen).",
+        "data": {
+          "address": "Gerät"
+        }
+      },
+      "user_slot": {
+        "title": "Nutzer auf der Waage",
+        "description": "Welcher der vier Nutzerplätze, und der 4-stellige PIN, der dafür in der Beurer-App festgelegt wurde. Bei jedem Abruf durch Home Assistant zeigt die Waage PAIr und eine 6-stellige Zahl: dann einmal SET an der Waage drücken.",
+        "data": {
+          "user": "Nutzerplatz (1-4)",
+          "consent_code": "PIN"
+        }
+      },
+      "pin": {
+        "title": "PIN für Nutzer {user}",
+        "description": "Die Waage hat den PIN abgelehnt, oder du möchtest ihn ändern. Gib den 4-stelligen PIN dieses Nutzerplatzes ein, wie er in der Beurer HealthManager Pro App festgelegt ist.",
+        "data": {
+          "consent_code": "PIN"
+        }
+      }
+    },
+    "abort": {
+      "no_devices_found": "Keine BF500 gefunden. Waage aufwecken und erneut versuchen.",
+      "already_configured": "Dieser Nutzer ist bereits eingerichtet.",
+      "reauth_successful": "Der PIN wurde aktualisiert.",
+      "reconfigure_successful": "Der PIN wurde aktualisiert."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "weight": {
+        "name": "Gewicht"
+      },
+      "bmi": {
+        "name": "BMI"
+      },
+      "body_fat": {
+        "name": "Körperfett"
+      },
+      "muscle": {
+        "name": "Muskelanteil"
+      },
+      "body_water": {
+        "name": "Körperwasser"
+      },
+      "bmr": {
+        "name": "Grundumsatz"
+      },
+      "impedance": {
+        "name": "Impedanz"
+      },
+      "last_measurement": {
+        "name": "Letzte Messung"
+      }
+    },
+    "button": {
+      "fetch": {
+        "name": "Messungen abrufen"
+      }
+    }
+  },
+  "services": {
+    "import_history": {
+      "name": "Verlauf importieren",
+      "description": "CSV-Export der Beurer HealthManager Pro App als Langzeitstatistik für einen Nutzer importieren (Stundenwerte, nur vor dem Anlegen der Sensoren).",
+      "fields": {
+        "file": {
+          "name": "Datei",
+          "description": "Pfad der CSV-Datei, relativ zum Konfigurationsordner."
+        },
+        "user": {
+          "name": "Nutzerplatz",
+          "description": "Nutzerplatz auf der Waage (1-4), zu dem der Export gehört."
+        }
+      }
+    }
+  }
+}

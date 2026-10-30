@@ -1,0 +1,23 @@
+{
+  "domain": "beurer_scale",
+  "name": "Beurer BF500 Scale",
+  "bluetooth": [
+    {
+      "local_name": "BF500",
+      "connectable": true
+    }
+  ],
+  "codeowners": [
+    "@ertn0"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "bluetooth_adapters"
+  ],
+  "documentation": "https://github.com/ertn0/ha-beurer-scale",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/ertn0/ha-beurer-scale/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
